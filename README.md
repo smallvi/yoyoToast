@@ -6,7 +6,11 @@
 
 ## Introduction
 
-This plugin provides a customizable toast popup without any dependencies.
+This plugin provides a customizable toast without any dependencies.
+
+## Screenshot
+
+![Yoyo Toast](images/sample_yoyo_toast.png)
 
 ## Installation
 
@@ -40,7 +44,9 @@ Include the following files in your project:
     ```javascript
     yoyoToast.fire({
         type: 'success',
-        message: 'Success YoYo Toast!',
+        title: 'Congratulation!',
+        message: 'Updated Successfully',
+        subtext: '~ Success YoYo Toast ~',
         timeout: 0,
         position: 'top-right'
     });
@@ -49,7 +55,9 @@ Include the following files in your project:
 ## Param
 
 - type: Icon type {'info','question','success','warning','danger'}
+- title: Title Text (optional)
 - message: Main Text
+- subtext: Sub Text (optional)
 - timeOut: auto close modal (1000 = 1 sec),
 - position: {'top-left', 'top-right', 'bottom-left', 'bottom-right'}
 
