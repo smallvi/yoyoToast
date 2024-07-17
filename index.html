@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoYo Toast Demo</title>
+    <!-- <link rel="stylesheet" href="yoyo-toast.css"> -->
+    <link rel="stylesheet" href="yoyo-toast.min.css">
+
+</head>
+
+<body>
+    <button id="success">Success</button>
+    <button id="danger">Danger</button>
+    <button id="info">Info</button>
+    <button id="warning">Warning</button>
+    <button id="question">Question</button>
+
+    <!-- <script src="yoyo-toast.js"></script> -->
+    <script src="yoyo-toast.min.js"></script>
+
+    <script>
+
+        document.getElementById('danger').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'danger',
+                message: 'Danger YoYo Toast!',
+            });
+        });
+
+        document.getElementById('success').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'success',
+                message: 'Success YoYo Toast!',
+                timeout: 0,
+                position: 'top-right'
+            });
+        });
+
+        document.getElementById('info').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'info',
+                message: 'Info YoYo Toast!',
+                timeout: 0,
+                position: 'bottom-right'
+            });
+        });
+
+        document.getElementById('warning').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'warning',
+                message: 'Warning YoYo Toast!',
+                timeout: 0,
+                position: 'bottom-left'
+            });
+        });
+
+        document.getElementById('question').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'question',
+                message: 'Question YoYo Toast!',
+                timeout: 3000,
+                position: 'bottom-left'
+            });
+        });
+
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                yoyoToast.fire({
+                    type: 'info',
+                    message: `This is ${i + 1} message`,
+                    timeout: 5000,
+                    position: 'bottom-left'
+                });
+            }, i * 500);
+        }
+
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                yoyoToast.fire({
+                    type: 'warning',
+                    message: `This is ${i + 1} message`,
+                    timeout: 10000,
+                    position: 'bottom-right'
+                });
+            }, i * 500);
+        }
+    </script>
+</body>
+
+</html>

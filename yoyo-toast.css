@@ -1,0 +1,103 @@
+/*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyo_toast) */
+.yoyo-toast-container {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  .yoyo-toast-container.top-right {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .yoyo-toast-container.top-left {
+    top: 12px;
+    left: 12px;
+  }
+  
+  .yoyo-toast-container.bottom-right {
+    bottom: 12px;
+    right: 12px;
+  }
+  
+  .yoyo-toast-container.bottom-left {
+    bottom: 12px;
+    left: 12px;
+  }
+  
+  .yoyo-toast {
+    position: relative;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+    max-width: 350px;
+  }
+  
+  .yoyo-toast.show {
+    opacity: 1;
+  }
+  
+  .yoyo-toast-icon {
+    margin-right: 10px;
+    float: left;
+  }
+  
+  .yoyo-toast-content {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .yoyo-toast-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 0;
+    transition: width linear;
+  }
+  
+  .yoyo-toast.success {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .yoyo-toast.warning {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .yoyo-toast.danger {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .yoyo-toast.info {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .yoyo-toast.question {
+    background-color: #9c27b0;
+    color: white;
+  }
+
+  .yoyo-toast-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+  }
+  
+  .yoyo-toast-close:hover {
+    color: white;
+  }
