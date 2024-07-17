@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YoYo Toast Demo</title>
+    <title>Yoyo Toast Demo</title>
     <!-- <link rel="stylesheet" href="yoyo-toast.css"> -->
     <link rel="stylesheet" href="yoyo-toast.min.css">
 
@@ -37,7 +37,7 @@
                 type: 'danger',
                 title: 'Oh no!',
                 message: 'Something went wrong!',
-                subtext: '~ Danger Yoyo Toast ~',
+                subtext: '{"message":"The given data was invalid.","errors":{"student_name":["The student name field is required."]}}',
                 position: 'top-right'
             });
         });
@@ -47,7 +47,7 @@
                 type: 'success',
                 title: 'Congratulation!',
                 message: 'Updated Successfully',
-                subtext: '~ Success YoYo Toast ~',
+                
                 timeout: 0,
                 position: 'top-right'
             });
@@ -56,7 +56,7 @@
         document.getElementById('info').addEventListener('click', function () {
             yoyoToast.fire({
                 type: 'info',
-                message: 'Info YoYo Toast!',
+                message: 'Info Yoyo Toast!',
                 timeout: 0,
                 subtext: '~ Info Yoyo Toast ~',
                 position: 'top-right'
@@ -66,7 +66,7 @@
         document.getElementById('warning').addEventListener('click', function () {
             yoyoToast.fire({
                 type: 'warning',
-                message: 'Warning YoYo Toast!',
+                message: 'Warning Yoyo Toast!',
                 timeout: 0,
                 subtext: '~ Warning Yoyo Toast ~',
                 position: 'top-right'
@@ -76,7 +76,7 @@
         document.getElementById('question').addEventListener('click', function () {
             yoyoToast.fire({
                 type: 'question',
-                message: 'Question YoYo Toast!',
+                message: 'Question Yoyo Toast!',
                 timeout: 3000,
                 subtext: '~ Question Yoyo Toast ~',
                 position: 'top-right'
@@ -87,7 +87,7 @@
             setTimeout(() => {
                 yoyoToast.fire({
                     type: 'info',
-                    message: `This is ${i + 1} message`,
+                    message: `This is message ${i + 1} `,
                     timeout: 5000,
                     position: 'bottom-left'
                 });
@@ -98,7 +98,7 @@
             setTimeout(() => {
                 yoyoToast.fire({
                     type: 'warning',
-                    message: `This is ${i + 1} message`,
+                    message: `This is message ${i + 1} `,
                     timeout: 10000,
                     position: 'bottom-right'
                 });

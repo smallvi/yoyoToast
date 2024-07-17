@@ -1,6 +1,7 @@
 /*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyo_toast) */
 :root {
     --yoyo-dark: #2C3E50 ;
+    --yoyo-padding: 30px;
 }
 .yoyo-toast-container {
     position: fixed;
@@ -9,29 +10,29 @@
 }
 
 .yoyo-toast-container.top-right {
-    top: 12px;
-    right: 12px;
+    top: var(--yoyo-padding);
+    right: var(--yoyo-padding);
 }
 
 .yoyo-toast-container.top-left {
-    top: 12px;
-    left: 12px;
+    top: var(--yoyo-padding);
+    left: var(--yoyo-padding);
 }
 
 .yoyo-toast-container.bottom-right {
-    bottom: 12px;
-    right: 12px;
+    bottom: var(--yoyo-padding);
+    right: var(--yoyo-padding);
 }
 
 .yoyo-toast-container.bottom-left {
-    bottom: 12px;
-    left: 12px;
+    bottom: var(--yoyo-padding);
+    left: var(--yoyo-padding);
 }
 
 .yoyo-toast {
     position: relative;
-    padding: 12px 20px;
-    margin-bottom: 10px;
+    padding: 20px 20px;
+    margin-bottom: 25px;
     background: #ffffff;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -47,17 +48,33 @@
     opacity: 1;
 }
 
+.yoyo-toast.show .yoyo-toast-icon {
+    animation: yoyoIconBounce 1s ease;
+}
+
 .yoyo-toast-icon {
-    margin-right: 10px ;
+    margin-right: 15px ;
     float: left ;
     color:#333333 ;
     width: 1.4rem ;
 }
 
 .yoyo-toast-content {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin-right: 10px;
     font-size: 1.2rem;
+}
+
+.yoyo-title {
+    font-size: 1rem;
+    margin-bottom:5px;
+    font-weight: bold;
+}
+
+.yoyo-subtext {
+    font-size: 0.8rem;
+    margin-top:5px;
 }
 
 .yoyo-toast-progress {
@@ -100,13 +117,13 @@
     top: 5px;
     right: 5px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.4rem;
     color: SlateGray;
     transition: color 0.3s ease;
 }
 
 .yoyo-toast-close:hover {
-    color: white;
+    color: black;
 }
 
 @keyframes fadeInRight {
@@ -235,4 +252,10 @@
 
 .yoyo-toast.bottom-left.hide {
     animation: fadeOutLeft 0.5s forwards;
+}
+
+@keyframes yoyoIconBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }

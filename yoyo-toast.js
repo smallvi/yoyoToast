@@ -24,13 +24,13 @@ const yoyoToast = (function () {
         const yoyoToast = document.createElement('div');
         yoyoToast.className = `yoyo-toast ${type} ${position}`;
 
-        const icon = document.createElement('span');
+        const icon = document.createElement('div');
         icon.className = 'yoyo-toast-icon';
         icon.innerHTML = yoyoIcons[type];
 
-        const content = document.createElement('span');
+        const content = document.createElement('div');
         content.className = 'yoyo-toast-content';
-        content.innerHTML = `${title ? `<div style="font-size: 1rem;margin-bottom:10px;"><strong> ${title} </strong></div>` : ``} <div>${message}</div> ${subtext ? `<div style="font-size: 0.8rem;margin-top:10px;">${subtext}</div>` : ``}`;
+        content.innerHTML = `<div>${title ? `<div class="yoyo-title">${title}</div>` : ``} <div>${message}</div> ${subtext ? `<div class="yoyo-subtext">${subtext}</div></div>` : ``}`;
 
         const closeButton = document.createElement('span');
         closeButton.className = 'yoyo-toast-close';
