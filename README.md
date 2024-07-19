@@ -63,7 +63,7 @@ Include the following files in your project:
 
 ## Sample
 
-Refer [index.html](index.html)
+[Demo](docs/index.html)
 
 ## License
 
