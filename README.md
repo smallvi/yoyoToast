@@ -63,7 +63,7 @@ Include the following files in your project:
 
 ## Sample
 
-[Demo](docs/index.html)
+[Demo](https://smallvi.github.io/yoyo_toast/)
 
 ## License
 
