@@ -1,12 +1,8 @@
 # Yoyo Toast
 
-## Author
-- Yeo
-- smallvi@gmail.com
-
 ## Introduction
 
-This plugin provides a customizable toast without any dependencies.
+Yoyo Toast is a customizable toast notification plugin that operates without any dependencies. It's designed for simplicity and flexibility, enabling you to create sleek and effective toast notifications for your website or application.
 
 ## Screenshot
 
@@ -16,15 +12,13 @@ This plugin provides a customizable toast without any dependencies.
 
 Include the following files in your project:
 
-- `yoyo-toast.min.css`
 - `yoyo-toast.min.js`
 
 ## Usage
 
-1. Include `yoyo-toast.min.css` and `yoyo-toast.min.js` in your HTML file:
+1. Include `yoyo-toast.min.js` in your HTML file:
 
    ```html
-   <link rel="stylesheet" href="path/to/yoyo-toast.min.css">
    <script src="path/to/yoyo-toast.min.js"></script>
    ```
 

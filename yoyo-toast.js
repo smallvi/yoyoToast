@@ -1,4 +1,275 @@
 /*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyo_toast) */
+function addGlobalStyle(css) {
+    const style = document.createElement('style');
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+}
+
+const cssStyles = `
+:root {
+    --yoyo-dark: #2C3E50 ;
+    --yoyo-padding: 30px;
+}
+.yoyo-toast-container {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.yoyo-toast-container.top-right {
+    top: var(--yoyo-padding);
+    right: var(--yoyo-padding);
+}
+
+.yoyo-toast-container.top-left {
+    top: var(--yoyo-padding);
+    left: var(--yoyo-padding);
+}
+
+.yoyo-toast-container.bottom-right {
+    bottom: var(--yoyo-padding);
+    right: var(--yoyo-padding);
+}
+
+.yoyo-toast-container.bottom-left {
+    bottom: var(--yoyo-padding);
+    left: var(--yoyo-padding);
+}
+
+.yoyo-toast {
+    position: relative;
+    padding: 20px 20px;
+    margin-bottom: 25px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333333;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
+    max-width: 350px;
+    font-family: Arial, sans-serif;
+}
+
+.yoyo-toast.show {
+    opacity: 1;
+}
+
+.yoyo-toast.show .yoyo-toast-icon {
+    animation: yoyoIconBounce 1s ease;
+}
+
+.yoyo-toast-icon {
+    margin-right: 15px ;
+    float: left ;
+    color:#333333 ;
+    width: 1.4rem ;
+}
+
+.yoyo-toast-content {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.yoyo-title {
+    font-size: 1rem;
+    margin-bottom:5px;
+    font-weight: bold;
+}
+
+.yoyo-subtext {
+    font-size: 0.8rem;
+    margin-top:5px;
+}
+
+.yoyo-toast-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 0;
+    transition: width linear;
+}
+
+.yoyo-toast.success {
+    background-color: HoneyDew;
+    color: var(--yoyo-dark);
+}
+
+.yoyo-toast.warning {
+    background-color: LemonChiffon;
+    color: var(--yoyo-dark);
+}
+
+.yoyo-toast.danger {
+    background-color: MistyRose;
+    color: var(--yoyo-dark);
+}
+
+.yoyo-toast.info {
+    background-color: Azure;
+    color: var(--yoyo-dark);
+}
+
+.yoyo-toast.question {
+    background-color: #F8F8FF;
+    color: var(--yoyo-dark);
+}
+
+.yoyo-toast-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: SlateGray;
+    transition: color 0.3s ease;
+}
+
+.yoyo-toast-close:hover {
+    color: black;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.yoyo-toast.top-right.show {
+    animation: fadeInRight 0.5s forwards;
+}
+
+.yoyo-toast.top-left.show {
+    animation: fadeInLeft 0.5s forwards;
+}
+
+.yoyo-toast.bottom-right.show {
+    animation: fadeInRight 0.5s forwards;
+}
+
+.yoyo-toast.bottom-left.show {
+    animation: fadeInLeft 0.5s forwards;
+}
+
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+.yoyo-toast.top-right.hide {
+    animation: fadeOutRight 0.5s forwards;
+}
+
+.yoyo-toast.top-left.hide {
+    animation: fadeOutLeft 0.5s forwards;
+}
+
+.yoyo-toast.bottom-right.hide {
+    animation: fadeOutRight 0.5s forwards;
+}
+
+.yoyo-toast.bottom-left.hide {
+    animation: fadeOutLeft 0.5s forwards;
+}
+
+@keyframes yoyoIconBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+`;
+
+addGlobalStyle(cssStyles);
+
 const yoyoToast = (function () {
     const yoyoIcons = {
         warning: '<svg class="yoyo-toast-icon;" fill="#D68910" viewBox="0 0 20 20"><path d="M10 0C4.485 0 0 4.485 0 10s4.485 10 10 10 10-4.485 10-10S15.515 0 10 0zM11 15H9v-2h2v2zM11 11H9V5h2v6z"/></svg>',
