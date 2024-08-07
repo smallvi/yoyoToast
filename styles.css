@@ -5,7 +5,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
@@ -20,13 +19,19 @@ h1 {
     animation: pulse 2s infinite;
 }
 
-.github-link {
-    color: #fff;
-    transition: color 0.3s;
+.github-btn {
+    display: block;
+    font-size: 1.5rem;
+    border: 1px;
+    padding: 10px;
+    background-color: #373737;
+    margin: auto;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;;
 }
 
-.github-link:hover {
-    color: #007bff;
+.github-btn:hover {
+    background-color: #292929;
 }
 
 .buttons {
@@ -70,9 +75,12 @@ h1 {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
     }
+
     50% {
         text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
     }

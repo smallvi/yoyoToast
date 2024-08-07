@@ -1,5 +1,7 @@
 # Yoyo Toast
 
+![Yoyo Toast](images/yoyo_toast_banner.png)
+
 ## Introduction
 
 Yoyo Toast is a customizable toast notification plugin that operates without any dependencies. It's designed for simplicity and flexibility, enabling you to create sleek and effective toast notifications for your website or application.
