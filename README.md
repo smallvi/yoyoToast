@@ -37,12 +37,19 @@ Include the following files in your project:
 
     ```javascript
     yoyoToast.fire({
-        type: 'success',
-        title: 'Congratulation!',
-        message: 'Updated Successfully',
-        subtext: '~ Success YoYo Toast ~',
-        timeout: 0,
-        position: 'top-right'
+        type: 'info',
+        title: 'Update Available',
+        message: 'Update to 10.5.3',
+        timeout: 10000,
+        subtext: '~ Info Yoyo Toast ~',
+        position: 'top-right',
+        timeoutFunction: ()=> alert('Timeout Function called'),
+        hasConfirmation: true,
+        confirmLabel: 'Right!',
+        confirmFunction: () => alert('Confirm Function Called'),
+        hasCancellation: true,
+        cancelLabel: 'Not Now',
+        cancelFunction: () => alert('cancel function Called'),
     });
     ```
 
@@ -52,8 +59,15 @@ Include the following files in your project:
 - title: Title Text (optional)
 - message: Main Text
 - subtext: Sub Text (optional)
-- timeOut: auto close modal (1000 = 1 sec),
-- position: {'top-left', 'top-right', 'bottom-left', 'bottom-right'}
+- timeOut: Auto close modal after this time (optional; in milliseconds; 1000 = 1 second),
+- position: Display position {'top-left', 'top-right', 'bottom-left', 'bottom-right'} (Optional)
+- timeoutFunction: function to call when timeout occurs (Optional)
+- hasConfirmation: show confirm button if true (Optional)
+- confirmLabel: Label for confirm button (Optional)
+- confirmFunction: Function to call when confirm button is clicked (Optional)
+- hasCancellation: Show cancel button if true (Optional)
+- cancelLabel: Label for cancel button (Optional)
+- cancelFunction: Function to call when cancel button is clicked (Optional)
 
 ## Sample
 

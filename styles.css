@@ -35,7 +35,7 @@ h1 {
     gap: 1rem;
 }
 
-button {
+.button {
     padding: 1rem 2rem;
     border: none;
     cursor: pointer;
@@ -49,7 +49,7 @@ button {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
-button::before {
+.button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -60,11 +60,11 @@ button::before {
     transition: all 0.3s;
 }
 
-button:hover::before {
+.button:hover::before {
     left: 100%;
 }
 
-button:hover {
+.button:hover {
     background-color: #444;
     box-shadow: 0 0 25px rgba(0, 255, 255, 1);
 }

@@ -1,4 +1,4 @@
-/*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyo_toast) */
+/*! Yoyo Toast v1.0.1 (https://github.com/smallvi/yoyo_toast) */
 function addGlobalStyle(css) {
     const style = document.createElement('style');
     style.appendChild(document.createTextNode(css));
@@ -10,6 +10,7 @@ const cssStyles = `
     --yoyo-dark: #2C3E50 ;
     --yoyo-padding: 30px;
 }
+
 .yoyo-toast-container {
     position: fixed;
     z-index: 9999;
@@ -37,6 +38,7 @@ const cssStyles = `
 }
 
 .yoyo-toast {
+    display: flex;
     position: relative;
     padding: 20px 20px;
     margin-bottom: 25px;
@@ -47,7 +49,9 @@ const cssStyles = `
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: auto;
-    max-width: 350px;
+    // max-width: 350px;
+    max-width: 450px;
+
     font-family: Arial, sans-serif;
 }
 
@@ -82,6 +86,37 @@ const cssStyles = `
 .yoyo-subtext {
     font-size: 0.8rem;
     margin-top:5px;
+}
+
+.yoyo-toast-confirmation-area {
+    padding: 10px;
+    margin: auto;
+}
+
+.yoyo-toast-button {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.yoyo-toast-confirm-button {
+    background-color: #3498db;
+}
+
+.yoyo-toast-confirm-button:hover {
+    background-color: #004c9e;
+}
+
+.yoyo-toast-cancel-button {
+    color: white;
+    background-color: #6c757d;
+    margin-right: 3px;
+}
+
+.yoyo-toast-cancel-button:hover {
+    background-color: #252729;
 }
 
 .yoyo-toast-progress {
@@ -289,7 +324,7 @@ const yoyoToast = (function () {
         return newContainer;
     }
 
-    function createYoyoToast(type, title, message, subtext, timeout, position) {
+    function createYoyoToast(type, title, message, subtext, timeout, position, timeoutFunction, hasConfirmation, confirmLabel, confirmFunction, hasCancellation, cancelLabel, cancelFunction) {
         const container = createYoyoToastContainer(position);
 
         const yoyoToast = document.createElement('div');
@@ -303,6 +338,17 @@ const yoyoToast = (function () {
         content.className = 'yoyo-toast-content';
         content.innerHTML = `<div>${title ? `<div class="yoyo-title">${title}</div>` : ``} <div>${message}</div> ${subtext ? `<div class="yoyo-subtext">${subtext}</div></div>` : ``}`;
 
+        const confirmationArea = document.createElement('div');
+        confirmationArea.className = 'yoyo-toast-confirmation-area';
+
+        const confirmationButton = document.createElement('button');
+        confirmationButton.className = 'yoyo-toast-button yoyo-toast-confirm-button';
+        confirmationButton.innerHTML = `${confirmLabel}`;
+
+        const cancelButton = document.createElement('button');
+        cancelButton.className = 'yoyo-toast-button yoyo-toast-cancel-button';
+        cancelButton.innerHTML = `${cancelLabel}`;
+
         const closeButton = document.createElement('span');
         closeButton.className = 'yoyo-toast-close';
         closeButton.textContent = '×';
@@ -311,10 +357,25 @@ const yoyoToast = (function () {
         const progress = document.createElement('div');
         progress.className = 'yoyo-toast-progress';
 
-        yoyoToast.appendChild(icon);
+        if (!hasConfirmation) {
+            yoyoToast.appendChild(icon);
+        }
+
         yoyoToast.appendChild(content);
         yoyoToast.appendChild(closeButton);
         yoyoToast.appendChild(progress);
+
+        if (hasConfirmation || hasCancellation) {
+            yoyoToast.appendChild(confirmationArea);
+
+            if (hasCancellation) {
+                confirmationArea.appendChild(cancelButton);
+            }
+
+            if (hasConfirmation) {
+                confirmationArea.appendChild(confirmationButton);
+            }
+        }
 
         container.appendChild(yoyoToast);
 
@@ -323,7 +384,10 @@ const yoyoToast = (function () {
         let paused = false;
 
         function startTimeout() {
-            timeoutId = setTimeout(() => closeYoyoToast(yoyoToast, container), timeout);
+            timeoutId = setTimeout(() => {
+                timeoutFunction();
+                closeYoyoToast(yoyoToast, container);
+            }, timeout);
             animateProgress(progress, timeout);
         }
 
@@ -368,6 +432,17 @@ const yoyoToast = (function () {
             }
         }, 10);
 
+        yoyoToast.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target === confirmationButton) {
+                confirmFunction();
+                closeYoyoToast(yoyoToast, container);
+            } else if (target === cancelButton) {
+                cancelFunction();
+                closeYoyoToast(yoyoToast, container);
+            }
+        });
+
         return yoyoToast;
     }
 
@@ -383,8 +458,22 @@ const yoyoToast = (function () {
     }
 
     return {
-        fire: function ({ type = 'info', title, message, subtext, timeout = 5000, position = 'top-right' } = {}) {
-            return createYoyoToast(type, title, message, subtext, timeout, position);
+        fire: function ({
+            type = 'info',
+            title,
+            message,
+            subtext,
+            timeout = 5000,
+            position = 'top-right',
+            timeoutFunction = () => {},
+            hasConfirmation = false,
+            confirmLabel = 'Confirm',
+            confirmFunction = () => { },
+            hasCancellation = false,
+            cancelLabel = 'Cancel',
+            cancelFunction = () => { },
+        } = {}) {
+            return createYoyoToast(type, title, message, subtext, timeout, position, timeoutFunction, hasConfirmation, confirmLabel, confirmFunction, hasCancellation, cancelLabel, cancelFunction);
         }
     };
 })();

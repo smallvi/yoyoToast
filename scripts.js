@@ -3,8 +3,26 @@
                 type: 'danger',
                 title: 'Oh no!',
                 message: 'Something went wrong!',
-                subtext: '{"message":"The given data was invalid.","errors":{"student_name":["The student name field is required."]}}',
-                position: 'top-right'
+                subtext: 'The student name field is required.',
+                position: 'top-right',
+            });
+        });
+
+        document.getElementById('info').addEventListener('click', function () {
+            yoyoToast.fire({
+                type: 'info',
+                title: 'Update Available',
+                message: 'Update to 10.5.3',
+                timeout: 10000,
+                subtext: '~ Info Yoyo Toast ~',
+                position: 'top-right',
+                timeoutFunction: ()=> alert('Timeout Function called'),
+                hasConfirmation: true,
+                confirmLabel: 'Right!',
+                confirmFunction: () => alert('Confirm Function Called'),
+                hasCancellation: true,
+                cancelLabel: 'Not Now',
+                cancelFunction: () => alert('cancel function Called'),
             });
         });
 
@@ -18,15 +36,7 @@
             });
         });
 
-        document.getElementById('info').addEventListener('click', function () {
-            yoyoToast.fire({
-                type: 'info',
-                message: 'Info Yoyo Toast!',
-                timeout: 0,
-                subtext: '~ Info Yoyo Toast ~',
-                position: 'top-right'
-            });
-        });
+        
 
         document.getElementById('warning').addEventListener('click', function () {
             yoyoToast.fire({
