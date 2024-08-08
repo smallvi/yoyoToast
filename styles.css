@@ -163,3 +163,21 @@ h1 {
     content: '\00a0';
     margin-right: 30px;
 }
+
+.floating-image {
+    width: 300px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
