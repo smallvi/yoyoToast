@@ -27,7 +27,8 @@ h1 {
     background-color: #373737;
     margin: auto;
     transition: background-color 0.3s ease;
-    border-radius: 5px;;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .github-btn:hover {
@@ -37,7 +38,10 @@ h1 {
 .buttons {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
+    margin-bottom: 50px;
+
 }
 
 .button {
@@ -84,4 +88,78 @@ h1 {
     50% {
         text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
     }
+}
+
+.browser_dot {
+    height: 14px;
+    width: 14px;
+    background-color: #494949;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.browser_container {
+    border: 1px solid #696969;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    /* width: 400px; */
+    box-sizing: border-box;
+}
+
+.browser_top {
+    padding: 20px;
+    background: #222222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    position: relative;
+}
+
+.browser_top_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999999;
+    margin: 0px;
+    font-size: 0.9rem;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.browser_content {
+    padding-top: 1px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    color: #e7e7e7;
+    background: #222222;
+    font-family: Consolas, 'Courier New', monospace;
+}
+
+.browser_content p {
+    line-height: 24px;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.browser_function_color {
+    color: #73dea5;
+}
+
+.browser_value_color {
+    color: #d9ce6f;
+}
+
+.browser_symbol_color {
+    color: #ff669c;
+}
+
+.browser_inline::before{
+    content: '\00a0';
+    margin-right: 30px;
 }

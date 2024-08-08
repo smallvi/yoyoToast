@@ -2,6 +2,8 @@
 
 ![Yoyo Toast](images/yoyo_toast_banner.png)
 
+[View Demo](https://smallvi.github.io/yoyo_toast/)
+
 ## Introduction
 
 Yoyo Toast is a customizable toast notification plugin that operates without any dependencies. It's designed for simplicity and flexibility, enabling you to create sleek and effective toast notifications for your website or application.
@@ -70,10 +72,6 @@ Include the following files in your project:
 - hasCancellation: Show cancel button if true (Optional)
 - cancelLabel: Label for cancel button (Optional)
 - cancelFunction: Function to call when cancel button is clicked (Optional)
-
-## Sample
-
-[Demo](https://smallvi.github.io/yoyo_toast/)
 
 ## License
 
