@@ -159,7 +159,7 @@ h1 {
     color: #ff669c;
 }
 
-.browser_inline::before{
+.browser_inline::before {
     content: '\00a0';
     margin-right: 30px;
 }
@@ -174,10 +174,39 @@ h1 {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-20px);
     }
+
     100% {
         transform: translateY(0);
     }
+}
+
+.browser_simple {
+    width: 100%;
+}
+
+.browser_advance {
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .browser_simple {
+        width: 400px;
+        margin: auto;
+    }
+
+    .browser_advance {
+        width: 600px;
+        margin: auto;
+    }
+    
 }
