@@ -2,7 +2,7 @@
 
 ![Yoyo Toast](images/yoyo_toast_banner.png)
 
-[View Demo](https://smallvi.github.io/yoyo_toast/)
+[View Demo](https://smallvi.github.io/yoyoToast/)
 
 ## Introduction
 
