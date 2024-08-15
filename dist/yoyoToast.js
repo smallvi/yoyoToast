@@ -1,4 +1,4 @@
-/*! Yoyo Toast v1.0.1 (https://github.com/smallvi/yoyo_toast) */
+/*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyoToast) */
 function addGlobalStyle(css) {
     const style = document.createElement('style');
     style.appendChild(document.createTextNode(css));

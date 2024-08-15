@@ -14,20 +14,20 @@ Yoyo Toast is a customizable toast notification plugin that operates without any
 
 ## Installation
 
-Include the following files in your project:
+- #### Download
 
-- `yoyo-toast.min.js`
+```html
+<script src="path/to/yoyoToast.min.js"></script>
+```
+
+- #### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/smallvi/yoyoToast/dist/yoyoToast.min.js"></script>
+```
 
 ## Usage
 
-1. Include `yoyo-toast.min.js` in your HTML file:
-
-   ```html
-   <script src="path/to/yoyo-toast.min.js"></script>
-   ```
-
-2. Initialize the plugin in your JavaScript:
-    
     ### Simple Yoyo Toast
 
     ```javascript
