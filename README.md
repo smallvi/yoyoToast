@@ -35,7 +35,7 @@ import { yoyoToast } from './node_modules/yoyo-toast/dist/yoyoToast.min.mjs';
 <script src="https://cdn.jsdelivr.net/gh/smallvi/yoyoToast@latest/dist/yoyoToast.umd.min.js"></script>
 
 <!-- unpkg CDN -->
-<script src="https://unpkg.com/yoyo-Toast@latest/dist/yoyoToast.umd.min.js"></script>
+<script src="https://unpkg.com/yoyo-toast@latest/dist/yoyoToast.umd.min.js"></script>
 ```
 
 - #### Self Hosted
