@@ -52,34 +52,34 @@ import { yoyoToast } from 'path/to/yoyoToast.mjs';
 
 ## Usage
 
-    ### Simple Yoyo Toast
+### Simple Yoyo Toast
 
-    ```javascript
-    yoyoToast.fire({
-        type: 'danger',
-        message: 'Danger YoYo Toast!',
-    });
-    ```
+```javascript
+yoyoToast.fire({
+    type: 'danger',
+    message: 'Danger YoYo Toast!',
+});
+```
     
-    ### Advance Yoyo Toast
+### Advance Yoyo Toast
 
-    ```javascript
-    yoyoToast.fire({
-        type: 'info',
-        title: 'Update Available',
-        message: 'Update to 10.5.3',
-        timeout: 10000,
-        subtext: '~ Info Yoyo Toast ~',
-        position: 'top-right',
-        timeoutFunction: ()=> alert('Timeout Function called'),
-        hasConfirmation: true,
-        confirmLabel: 'Right!',
-        confirmFunction: () => alert('Confirm Function Called'),
-        hasCancellation: true,
-        cancelLabel: 'Not Now',
-        cancelFunction: () => alert('cancel function Called'),
-    });
-    ```
+```javascript
+yoyoToast.fire({
+    type: 'info',
+    title: 'Update Available',
+    message: 'Update to 10.5.3',
+    timeout: 10000,
+    subtext: '~ Info Yoyo Toast ~',
+    position: 'top-right',
+    timeoutFunction: ()=> alert('Timeout Function called'),
+    hasConfirmation: true,
+    confirmLabel: 'Right!',
+    confirmFunction: () => alert('Confirm Function Called'),
+    hasCancellation: true,
+    cancelLabel: 'Not Now',
+    cancelFunction: () => alert('cancel function Called'),
+});
+```
 
 ## Param
 
