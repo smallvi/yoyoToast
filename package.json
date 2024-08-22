@@ -1,6 +1,6 @@
 {
   "name": "yoyo-toast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yoyo Toast is a customizable toast notification plugin that operates without any dependencies. It's designed for simplicity and flexibility, enabling you to create sleek and effective toast notifications for your website or application.",
   "main": "./dist/yoyoToast.min.mjs",
   "scripts": {

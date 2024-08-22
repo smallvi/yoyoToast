@@ -2,7 +2,7 @@
 
 ![Yoyo Toast](images/yoyo_toast_banner.png)
 
-[View Demo](https://smallvi.github.io/yoyoToast/)
+[View Demo](https://smallvi.github.io/projects/yoyoToast/)
 
 ## Introduction
 
@@ -14,16 +14,40 @@ Yoyo Toast is a customizable toast notification plugin that operates without any
 
 ## Installation
 
-- #### Download
+- #### Install Package
 
-```html
-<script src="path/to/yoyoToast.min.js"></script>
+```bash
+# npm
+npm install yoyo-toast
+
+# yarn
+yarn add yoyo-toast
+```
+
+```javascript
+import { yoyoToast } from './node_modules/yoyo-toast/dist/yoyoToast.min.mjs';
 ```
 
 - #### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/smallvi/yoyoToast/dist/yoyoToast.min.js"></script>
+<!-- jsDelivr CDN -->
+<script src="https://cdn.jsdelivr.net/gh/smallvi/yoyoToast@latest/dist/yoyoToast.umd.min.js"></script>
+
+<!-- unpkg CDN -->
+<script src="https://unpkg.com/yoyo-Toast@latest/dist/yoyoToast.umd.min.js"></script>
+```
+
+- #### Self Hosted
+
+```html
+<script src="path/to/yoyoToast.umd.min.js"></script>
+```
+
+- #### Self Hosted (ES6 Module)
+
+```javascript
+import { yoyoToast } from 'path/to/yoyoToast.mjs';
 ```
 
 ## Usage

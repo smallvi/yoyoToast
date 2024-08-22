@@ -1,4 +1,4 @@
-/*! Yoyo Toast v1.0.0 (https://github.com/smallvi/yoyoToast) */
+/*! Yoyo Toast v1.0.1 (https://github.com/smallvi/yoyoToast) */
 function addGlobalStyle(css) {
     const style = document.createElement('style');
     style.appendChild(document.createTextNode(css));
@@ -305,7 +305,7 @@ const cssStyles = `
 
 addGlobalStyle(cssStyles);
 
-const yoyoToast = (function () {
+export const yoyoToast = (function () {
     const yoyoIcons = {
         warning: '<svg class="yoyo-toast-icon;" fill="#D68910" viewBox="0 0 20 20"><path d="M10 0C4.485 0 0 4.485 0 10s4.485 10 10 10 10-4.485 10-10S15.515 0 10 0zM11 15H9v-2h2v2zM11 11H9V5h2v6z"/></svg>',
         danger: '<svg class="yoyo-toast-icon;" fill="Crimson" viewBox="0 0 20 20"><path d="M10 0C4.485 0 0 4.485 0 10s4.485 10 10 10 10-4.485 10-10S15.515 0 10 0zM11 15H9v-2h2v2zM11 11H9V5h2v6z"/></svg>',
@@ -477,3 +477,5 @@ const yoyoToast = (function () {
         }
     };
 })();
+
+window.yoyoToast = yoyoToast;
